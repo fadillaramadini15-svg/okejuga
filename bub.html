@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avengers Love Protocol ⚡❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #13294b 0%, #070b14 70%);
+      color: #f8fafc;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Partikel hati melayang di latar belakang */
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+      animation: naikKeAtas linear forwards;
+    }
+
+    @keyframes naikKeAtas {
+      0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.3) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(239, 68, 68, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #fca5a5;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* Arc Reactor Animasi */
+    .arc-reactor {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #e0f2fe 15%, #38bdf8 45%, #0284c7 75%, #0f172a 100%);
+      box-shadow:
+        0 0 25px #38bdf8,
+        0 0 60px rgba(56, 189, 248, 0.7),
+        inset 0 0 20px #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: nyalaReactor 1.6s infinite alternate ease-in-out;
+    }
+
+    .arc-reactor::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      border: 3px dashed rgba(255, 255, 255, 0.8);
+      animation: mutarPelan 8s linear infinite;
+    }
+
+    .love-core {
+      font-size: 42px;
+      z-index: 2;
+      animation: detakJantung 0.9s infinite;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.8));
+    }
+
+    @keyframes nyalaReactor {
+      from {
+        transform: scale(0.97);
+        box-shadow: 0 0 20px #38bdf8, 0 0 45px rgba(56, 189, 248, 0.5);
+      }
+      to {
+        transform: scale(1.04);
+        box-shadow: 0 0 35px #7dd3fc, 0 0 80px rgba(56, 189, 248, 0.95);
+      }
+    }
+
+    @keyframes mutarPelan {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes detakJantung {
+      0%, 100% { transform: scale(1); }
+      30% { transform: scale(1.25); }
+      60% { transform: scale(0.95); }
+    }
+
+    .status {
+      font-size: 14px;
+      color: #7dd3fc;
+      margin-bottom: 10px;
+      min-height: 20px;
+    }
+
+    .teks-bucin {
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #ffffff;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+    }
+
+    .heroes {
+      margin-top: 16px;
+      font-size: 22px;
+      letter-spacing: 8px;
+    }
+
+    button {
+      margin-top: 22px;
+      padding: 12px 26px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(239, 68, 68, 0.65);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Stark Love Protocol • 3000</div>
+
+    <div class="arc-reactor">
+      <div class="love-core">❤️</div>
+    </div>
+
+    <div class="status" id="status">Menunggu aktivasi sistem...</div>
+    <div class="teks-bucin" id="teksBucin">Klik tombol di bawah untuk mulai ya didil ⚡</div>
+
+    <div class="heroes">🛡️ ⚡ 💚 🕷️ ❤️</div>
+
+    <button id="btnMulai" onclick="mulaiAnimasi()">Aktifkan Mode Bucin</button>
+  </div>
+
+  <!-- Opsional: letakkan lagu.mp3 di folder yang sama -->
+  <audio id="musik" src="lagu.mp3" loop></audio>
+
+  <script>
+    const daftarPesan = [
+      { status: "[SCANNING HEROES...]", teks: "🛡️ Cap punya perisai terkuat, tapi hatiku cuma kepegang sama kamu." },
+      { status: "[POWER LEVEL: 100%]", teks: "⚡ Thor bisa manggil petir, tapi cuma senyum kamu yang bikin deg-degan." },
+      { status: "[INFINITY STONES CHECK]", teks: "💎 Gak butuh Infinity Stones buat ngabulin mauku..." },
+      { status: "[TARGET FOUND]", teks: "...soalnya punya kamu aja udah bikin duniaku lengkap." },
+      { status: "[FINAL PROTOCOL]", teks: "I love you 3000, hari ini, besok, dan seterusnya ❤️" }
+    ];
+
+    let idxPesan = 0;
+    let idxHuruf = 0;
+    let intervalHati = null;
+
+    function mulaiAnimasi() {
+      document.getElementById("btnMulai").classList.add("hidden");
+
+      const audio = document.getElementById("musik");
+      audio.play().catch(() => {
+        // Aman kalau lagu.mp3 belum ada di folder
+      });
+
+      if (!intervalHati) {
+        intervalHati = setInterval(buatHatiMelayang, 350);
+      }
+
+      tampilkanPesanBerikutnya();
+    }
+
+    function tampilkanPesanBerikutnya() {
+      if (idxPesan >= daftarPesan.length) {
+        document.getElementById("status").textContent = "[MISSION ACCOMPLISHED]";
+        document.getElementById("teksBucin").innerHTML = "Always yours, Avengers style ✨❤️";
+        return;
+      }
+
+      const item = daftarPesan[idxPesan];
+      const statusEl = document.getElementById("status");
+      const teksEl = document.getElementById("teksBucin");
+
+      statusEl.textContent = item.status;
+      teksEl.textContent = "";
+      idxHuruf = 0;
+
+      function ketikPerHuruf() {
+        if (idxHuruf < item.teks.length) {
+          teksEl.textContent += item.teks.charAt(idxHuruf);
+          idxHuruf++;
+          setTimeout(ketikPerHuruf, 45);
+        } else {
+          idxPesan++;
+          setTimeout(tampilkanPesanBerikutnya, 1800);
+        }
+      }
+
+      ketikPerHuruf();
+    }
+
+    function buatHatiMelayang() {
+      const hati = document.createElement("div");
+      const ikon = ["❤️", "💖", "✨", "💙"];
+      hati.className = "floating-heart";
+      hati.textContent = ikon[Math.floor(Math.random() * ikon.length)];
+      hati.style.left = Math.random() * 100 + "vw";
+      hati.style.fontSize = (16 + Math.random() * 18) + "px";
+      const durasi = 3.5 + Math.random() * 3;
+      hati.style.animationDuration = durasi + "s";
+
+      document.body.appendChild(hati);
+      setTimeout(() => hati.remove(), durasi * 1000);
+    }
+  </script>
+</body>
+</html>
